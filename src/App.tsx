@@ -2117,15 +2117,15 @@ const AeroBot = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-            className="fixed bottom-24 right-6 z-[99] w-[380px] max-h-[600px] bg-surface-container/95 backdrop-blur-xl rounded-2xl border border-outline-variant/20 shadow-2xl shadow-black/40 flex flex-col overflow-hidden"
+            className="fixed bottom-24 right-4 left-4 sm:right-6 sm:left-auto z-[99] w-full sm:w-[360px] max-h-[70vh] bg-surface-container/95 backdrop-blur-xl rounded-2xl border border-outline-variant/20 shadow-2xl shadow-black/40 flex flex-col overflow-hidden"
           >
             {/* Header */}
-            <div className="bg-gradient-to-r from-yellow-500/20 to-yellow-600/10 border-b border-outline-variant/15 p-4 flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center shadow-lg shadow-yellow-500/20">
+            <div className="bg-gradient-to-r from-yellow-500/20 to-yellow-600/10 border-b border-outline-variant/15 p-3 sm:p-4 flex items-center gap-2 sm:gap-3">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center shadow-lg shadow-yellow-500/20 flex-shrink-0">
                 <Bot className="w-5 h-5 text-black" />
               </div>
               <div className="flex-1">
-                <h3 className="text-sm font-bold text-white flex items-center gap-1.5">
+                <h3 className="text-xs sm:text-sm font-bold text-white flex items-center gap-1 sm:gap-1.5">
                   AeroBot
                   <Sparkles className="w-3.5 h-3.5 text-yellow-400" />
                 </h3>
@@ -2155,7 +2155,7 @@ const AeroBot = () => {
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-3 min-h-[300px] max-h-[400px] scrollbar-thin">
+            <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-3 min-h-[200px] sm:min-h-[300px] max-h-[50vh] scrollbar-thin">
               {messages.map((msg) => (
                 <motion.div
                   key={msg.id}
@@ -2201,13 +2201,13 @@ const AeroBot = () => {
 
             {/* Quick Replies */}
             {messages.length <= 2 && (
-              <div className="px-4 pb-2">
-                <div className="flex flex-wrap gap-1.5">
+              <div className="px-3 sm:px-4 pb-2">
+                <div className="flex flex-wrap gap-1 sm:gap-1.5">
                   {quickReplies.map((reply) => (
                     <button
                       key={reply}
                       onClick={() => sendMessage(reply)}
-                      className="px-3 py-1.5 rounded-full bg-surface-base/40 border border-outline-variant/15 text-[10px] font-bold text-on-surface-variant hover:border-yellow-400/40 hover:text-yellow-400 transition-all active:scale-95"
+                      className="px-2 sm:px-3 py-1 sm:py-1.5 rounded-full bg-surface-base/40 border border-outline-variant/15 text-[9px] sm:text-[10px] font-bold text-on-surface-variant hover:border-yellow-400/40 hover:text-yellow-400 transition-all active:scale-95"
                     >
                       {reply}
                     </button>
