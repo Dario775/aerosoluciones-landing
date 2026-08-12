@@ -1,6 +1,7 @@
 <script>
   // Neurocortex Remote Status Check
-  fetch('https://www.neurocortex.com.ar/api/status/b00bfdf1-8230-4795-aecd-3d1509f2d5a9')
+    // Neurocortex Remote Status Check
+  fetch('https://www.neurocortex.com.ar/api/status/b00bfdf1-8230-4795-aecd-3d1509f2d5a9?t=' + new Date().getTime(), { cache: 'no-store' })
     .then(res => res.json())
     .then(data => {
       if (data.status === 'pausado') {
