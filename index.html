@@ -8,6 +8,31 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+  // Neurocortex Remote Status Check
+  fetch('http://localhost:4321/api/status/b00bfdf1-8230-4795-aecd-3d1509f2d5a9')
+    .then(res => res.json())
+    .then(data => {
+      if (data.status === 'pausado') {
+        document.body.innerHTML = `
+          <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;background:#050505;color:#fff;font-family:sans-serif;text-align:center;padding:20px;margin:0;">
+            <svg style="width:64px;height:64px;margin-bottom:20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+            <h1 style="margin:0 0 10px 0;font-size:24px;">¿Te gustó el proyecto?</h1>
+            <p style="font-size:16px;color:#9ca3af;max-width:400px;margin:0 0 24px 0;">El período de revisión ha finalizado. Contáctanos para realizar el pago final y pasar el proyecto a producción.</p>
+            <a href="mailto:contacto@neurocortex.com" style="background:#fff;color:#000;padding:12px 24px;text-decoration:none;border-radius:6px;font-weight:bold;">Contactar a Neurocortex</a>
+          </div>
+        `;
+        document.body.style.margin = '0';
+        document.body.style.overflow = 'hidden';
+      } else if (data.status === 'alerta_pago') {
+        const banner = document.createElement('div');
+        banner.style.cssText = 'position:fixed;top:0;left:0;right:0;background:#ef4444;color:#fff;text-align:center;padding:12px;font-family:sans-serif;z-index:2147483647;font-weight:bold;box-shadow:0 4px 6px rgba(0,0,0,0.1);font-size:14px;';
+        banner.innerHTML = 'Aviso: Su suscripción mensual presenta un retraso. Por favor, contacte al soporte técnico de inmediato para evitar la suspensión del servicio.';
+        document.body.prepend(banner);
+        document.body.style.paddingTop = '45px';
+      }
+    }).catch(e => console.error('Status check failed'));
+</script>
   </body>
 </html>
 
