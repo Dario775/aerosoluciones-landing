@@ -9,8 +9,9 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     <script>
+  <script>
   // Neurocortex Remote Status Check
-  fetch('http://localhost:4321/api/status/b00bfdf1-8230-4795-aecd-3d1509f2d5a9')
+  fetch('https://www.neurocortex.com.ar/api/status/b00bfdf1-8230-4795-aecd-3d1509f2d5a9')
     .then(res => res.json())
     .then(data => {
       if (data.status === 'pausado') {
