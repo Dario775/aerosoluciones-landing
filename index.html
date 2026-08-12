@@ -1,17 +1,6 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aerosoluciones</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-    
 <script>
   // Neurocortex Remote Status Check
-  fetch('https://neurocortex.com.ar/api/status/b00bfdf1-8230-4795-aecd-3d1509f2d5a9')
+  fetch('https://www.neurocortex.com.ar/api/status/b00bfdf1-8230-4795-aecd-3d1509f2d5a9')
     .then(res => res.json())
     .then(data => {
       if (data.status === 'pausado') {
@@ -32,7 +21,5 @@
         document.body.prepend(banner);
         document.body.style.paddingTop = '45px';
       }
-    }).catch(e => console.error('Status check failed'));
+    }).catch(e => console.error('Status check failed', e));
 </script>
-  </body>
-</html>
